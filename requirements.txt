@@ -5,3 +5,4 @@ langchain-groq
 pypdf
 python-dotenv
 sentence-transformers
+pydantic==1.10.13
