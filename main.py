@@ -4,7 +4,7 @@ import streamlit as st
 # This loader converts PDF pages into readable text documents.
 from langchain_community.document_loaders import PyPDFLoader
 # Used to break large documents into smaller chunks.
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 # FAISS stores embeddings and performs fast similarity search.( FAISS vectors store karta hai aur similar text ko fast search karta hai.)
 from langchain_community.vectorstores import FAISS
 # Text ko numbers (vectors) me convert karta hai taaki similarity search ho sake.
