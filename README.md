@@ -3,6 +3,11 @@
 ## Overview
 The **RAG PDF Document Assistant** is a Streamlit-based web application that allows users to interact with PDF documents using a conversational interface. By leveraging advanced language models and embeddings, the application enables users to ask questions about the content of a PDF and receive accurate, context-aware responses.
 
+
+## streamlit link
+ **Live Demo:** [Click here to view](https://rag-pdf-reader-assistant.streamlit.app/)
+
+
 ## screenshot 
 ![App Screenshot](rag.jpg)
 
