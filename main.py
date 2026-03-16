@@ -12,13 +12,14 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 # Used to connect with Groq's hosted LLM models.
 from langchain_groq import ChatGroq
 # This combines retriever + LLM to answer questions.
-from langchain.chains import RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
 # Reads variables like API keys stored in .env file.
 from dotenv import load_dotenv
 # Used to access environment variables from the system.
 import os
 
-# Load environment variables
+#
+#  Load environment variables
 load_dotenv()
 
 api_key = os.getenv("GROQ_API_KEY")
