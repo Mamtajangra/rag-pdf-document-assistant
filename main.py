@@ -8,12 +8,12 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # FAISS stores embeddings and performs fast similarity search.( FAISS vectors store karta hai aur similar text ko fast search karta hai.)
-'''FAISS ek vector-based search engine hai jo text ka meaning samajh kar similar information find karta hai.
-Ye text ko embeddings (numbers) me convert karke similarity compare karta hai, isliye exact words match hona zaroori nahi hota.
- Example:
-PDF me likha hai “ML is a subset of AI”
-User puchta hai “What is Machine Learning?”
-FAISS samajh leta hai ki ML = Machine Learning aur correct chunk retrieve kar leta hai'''
+# '''FAISS ek vector-based search engine hai jo text ka meaning samajh kar similar information find karta hai.
+# Ye text ko embeddings (numbers) me convert karke similarity compare karta hai, isliye exact words match hona zaroori nahi hota.
+#  Example:
+# PDF me likha hai “ML is a subset of AI”
+# User puchta hai “What is Machine Learning?”
+# FAISS samajh leta hai ki ML = Machine Learning aur correct chunk retrieve kar leta hai'''
 from langchain_community.vectorstores import FAISS
 
 # Text ko numbers (vectors) me convert karta hai taaki similarity search ho sake.
@@ -102,10 +102,10 @@ def format_docs(docs):
 
 # Vector database (FAISS) ko retriever me convert karta hai jo user ke question ke liye
 # sabse relevant document chunks dhundta hai
-'''FAISS vector database ko ek search tool me convert karta hai.
-Ye user ke question ke basis par sabse similar (relevant) chunks find karta hai.
-Example: Question = “What is ML?” → ye “Machine learning is a subset of AI” wala chunk nikaal lega
-Iska kaam hai LLM ko sirf important context dena, poora PDF nahi.'''
+# '''FAISS vector database ko ek search tool me convert karta hai.
+# Ye user ke question ke basis par sabse similar (relevant) chunks find karta hai.
+# Example: Question = “What is ML?” → ye “Machine learning is a subset of AI” wala chunk nikaal lega
+# Iska kaam hai LLM ko sirf important context dena, poora PDF nahi.'''
 retriever = vectorstore.as_retriever()
 
 
