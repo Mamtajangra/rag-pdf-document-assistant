@@ -1,29 +1,50 @@
 # RAG PDF Document Assistant
 
 ## Overview
-The **RAG PDF Document Assistant** is a Streamlit-based web application that allows users to interact with PDF documents using a conversational interface. By leveraging advanced language models and embeddings, the application enables users to ask questions about the content of a PDF and receive accurate, context-aware responses.
+The **RAG PDF Document Assistant** is a Streamlit-based web application that allows users to interact with PDF documents using a conversational interface. Initially designed for single PDF interaction, the application has been enhanced to support multiple PDFs, enabling users to query and retrieve information from multiple documents simultaneously. By leveraging advanced language models and embeddings, the application provides accurate, context-aware responses to user queries.
+
+## Key Highlights
+
+- Built a multi-document Retrieval-Augmented Generation (RAG) system
+- Supports semantic search across multiple PDFs
+- Optimized with caching for faster performance
+- Integrated Groq LLM for real-time responses
 
 
-## streamlit link
- **Live Demo:** [Click here to view](https://rag-pdf-reader-assistant.streamlit.app/)
+## Live Demos
+- **Single PDF Assistant**: [Click here to view](https://rag-pdf-reader-assistant.streamlit.app/)
+- **Multi-PDF Assistant**: [Click here to view](https://multi-pdf-rag-sys.streamlit.app/)
 
 
-## screenshot 
+## screenshot
 ![App Screenshot](rag.jpg)
 
+## Architecture
+
+PDFs → Text Splitting → Embeddings → FAISS Vector Store → Retriever → LLM → Answer
+
 ## Features
-- **PDF Parsing**: Extracts text from PDF documents.
+- **Single PDF Support**: Extracts and processes text from a single PDF document.
+- **Multi-PDF Support**: Handles multiple PDFs, allowing cross-document querying.
 - **Text Chunking**: Splits large documents into smaller, manageable chunks for efficient processing.
 - **Embeddings**: Converts text into numerical vectors for similarity search.
 - **Vector Search**: Uses FAISS for fast and accurate similarity-based retrieval.
 - **Conversational Interface**: Integrates with Groq's hosted LLM models to provide a seamless Q&A experience.
 
 ## How It Works
+### Single PDF Mode
 1. **Load PDF**: The application reads a local PDF file.
 2. **Text Splitting**: The document is divided into smaller chunks using `RecursiveCharacterTextSplitter`.
 3. **Create Embeddings**: Text chunks are converted into embeddings using `HuggingFaceEmbeddings`.
 4. **Vector Store**: Embeddings are stored in a FAISS vector database for efficient retrieval.
 5. **Question Answering**: User queries are processed using `RetrievalQA`, which combines the retriever and LLM to generate responses.
+
+### Multi-PDF Mode
+1. **Load Multiple PDFs**: Users can upload multiple PDF files.
+2. **Text Splitting**: Each document is divided into smaller chunks.
+3. **Create Embeddings**: Text chunks from all documents are converted into embeddings.
+4. **Vector Store**: Embeddings from all documents are stored in a FAISS vector database.
+5. **Cross-Document Querying**: User queries are processed to retrieve relevant information from all uploaded documents.
 
 ## Installation
 
@@ -45,41 +66,30 @@ The **RAG PDF Document Assistant** is a Streamlit-based web application that all
      GROQ_API_KEY=your_api_key_here
      ```
 
-## Usage
+## Deployment
 
+For Streamlit Cloud deployment, add your API key in Secrets:
+
+GROQ_API_KEY = "your_api_key"
+
+## Usage
 1. Run the application:
    ```bash
-   streamlit run main.py
+   streamlit run main.py  # For single PDF assistant
+   streamlit run multi_main.py  # For multi-PDF assistant
    ```
+2. Open the application in your browser.
+3. Upload your PDF(s) and start querying!
 
-2. Open the application in your browser at `http://localhost:8501`.
 
-3. Upload a PDF file and start asking questions!
+## Technologies Used
+- **Streamlit**: For building the web application.
+- **FAISS**: For vector similarity search.
+- **HuggingFace Transformers**: For generating embeddings.
+- **Groq LLM**: For conversational AI capabilities.
 
-## Requirements
-- Python 3.8+
-- Libraries:
-  - `streamlit`
-  - `langchain`
-  - `langchain-community`
-  - `langchain-groq`
-  - `sentence-transformers`
-  - `faiss-cpu`
-  - `pypdf`
-  - `python-dotenv`
-  - `torch`
-
-## Project Structure
-- `main.py`: The main application script.
-- `requirements.txt`: Lists all dependencies.
-- `README.md`: Project documentation.
-
-## Acknowledgments
-This project utilizes the following technologies:
-- [Streamlit](https://streamlit.io/)
-- [LangChain](https://langchain.readthedocs.io/)
-- [FAISS](https://github.com/facebookresearch/faiss)
-- [Hugging Face Transformers](https://huggingface.co/transformers/)
+## Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## License
 This project is licensed under the MIT License.
