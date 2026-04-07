@@ -1,7 +1,7 @@
 # RAG PDF Document Assistant
 
 ## Overview
-The **RAG PDF Document Assistant** is a Streamlit-based web application that allows users to interact with PDF documents using a conversational interface. Initially designed for single PDF interaction, the application has been enhanced to support multiple PDFs, enabling users to query and retrieve information from multiple documents simultaneously. By leveraging advanced language models and embeddings, the application provides accurate, context-aware responses to user queries.
+The **RAG PDF Document Assistant** is a Streamlit-based web application that allows users to interact with PDF documents using a conversational interface. Initially designed for single PDF interaction, the application has been enhanced to support multiple PDFs, enabling users to query and retrieve information from multiple documents simultaneously. By leveraging advanced language models and embeddings, the application provides accurate, context-aware responses to user queries.Designed to solve real-world document analysis problems (research papers, reports, business documents)
 
 ## Key Highlights
 
@@ -16,8 +16,12 @@ The **RAG PDF Document Assistant** is a Streamlit-based web application that all
 - **Multi-PDF Assistant**: [Click here to view](https://multi-pdf-rag-sys.streamlit.app/)
 
 
-## screenshot
-![App Screenshot](rag.jpg)
+## screenshot single pdf
+![App Screenshot](interface_main.jpg)
+![App Screenshot](result_main.jpg)
+## screenshot multi pdf
+![App Screenshot](interface_multi_main.jpg)
+![App Screenshot](result_multi_main.jpg)
 
 ## Architecture
 
@@ -30,6 +34,21 @@ PDFs → Text Splitting → Embeddings → FAISS Vector Store → Retriever → 
 - **Embeddings**: Converts text into numerical vectors for similarity search.
 - **Vector Search**: Uses FAISS for fast and accurate similarity-based retrieval.
 - **Conversational Interface**: Integrates with Groq's hosted LLM models to provide a seamless Q&A experience.
+
+## What Makes This Project Different?
+
+*  **Multi-Document Reasoning** – Unlike basic RAG systems that work on a single document, this project enables querying across multiple PDFs simultaneously, allowing comparative analysis and deeper insights
+
+*  **Low-Latency LLM Responses** – Integrated with Groq LLM for faster response generation compared to traditional LLM setups
+
+*  **Semantic Search over Keyword Search** – Uses embeddings + FAISS to understand context, not just match keywords
+
+*  **Production-Oriented Design** – Built with scalability in mind (modular pipeline, caching, environment-based configs)
+
+*  **Interactive UI (Streamlit)** – Provides a user-friendly conversational interface instead of command-line tools
+
+*  **Cross-Document Knowledge Extraction** – Able to connect information from different PDFs in a single answer
+
 
 ## How It Works
 ### Single PDF Mode
