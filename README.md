@@ -17,11 +17,11 @@ The **RAG PDF Document Assistant** is a Streamlit-based web application that all
 
 
 ## screenshot single pdf
-![App Screenshot](interface_main.jpg)
-![App Screenshot](result_main.jpg)
+![App Screenshot](images/interface_main.jpg)
+![App Screenshot](images/result_main.jpg)
 ## screenshot multi pdf
-![App Screenshot](interface_multi_main.jpg)
-![App Screenshot](result_multi_main.jpg)
+![App Screenshot](images/interface_multi_main.jpg)
+![App Screenshot](images/result_multi_main.jpg)
 
 ## Architecture
 
